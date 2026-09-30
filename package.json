@@ -1,0 +1,54 @@
+{
+  "name": "siscacao",
+  "version": "1.0.0",
+  "description": "Sistema de registro y seguimiento de supervisiones de campo del Proyecto Cacao Curimana 2026",
+  "main": "desktop/main.js",
+  "scripts": {
+    "desktop": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.12.0",
+    "mysql2": "^3.24.4"
+  },
+  "devDependencies": {
+    "electron": "^44.3.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "pe.siscacao.desktop",
+    "productName": "SISCACAO",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "SISCACAO"
+    },
+    "files": [
+      "desktop/**/*",
+      "frontend/**/*",
+      "backend/src/**/*",
+      "backend/.env",
+      "package.json"
+    ]
+  }
+}

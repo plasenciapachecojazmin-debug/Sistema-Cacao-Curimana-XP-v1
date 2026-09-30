@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SISCACAO | Reportes</title>
+
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <img
+            src="img/logo-siscacao.png"
+            alt="Logo SISCACAO"
+            class="brand-logo"
+        >
+
+        <div class="brand-text">
+            <strong>SISCACAO</strong>
+            <span>Proyecto Cacao Curimaná</span>
+        </div>
+
+    </div>
+
+
+    <div class="top-user">
+
+        <span id="usuarioActual"></span>
+
+        <button
+            id="btnSalir"
+            class="secondary"
+            type="button"
+        >
+            Cerrar sesión
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img
+                src="img/logo-siscacao.png"
+                alt="SISCACAO"
+            >
+
+            <div>
+                <strong>SISCACAO</strong>
+                <span>Proyecto Cacao Curimaná</span>
+            </div>
+
+        </div>
+
+
+        <h3>Menú principal</h3>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="caserios.html">Caseríos</a>
+        <a href="tecnicos.html">Técnicos</a>
+        <a href="beneficiarios.html">Beneficiarios</a>
+        <a href="parcelas.html">Parcelas</a>
+        <a href="visitas.html">Visitas de campo</a>
+        <a href="supervisiones.html">Supervisiones</a>
+        <a href="hallazgos.html">Hallazgos</a>
+        <a href="recomendaciones.html">Recomendaciones</a>
+        <a href="seguimiento.html">Seguimiento</a>
+        <a href="reportes.html">Reportes</a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Reportes del Sistema</h1>
+
+                <p>
+                    Resumen y consulta de la información
+                    registrada en SISCACAO.
+                </p>
+
+            </div>
+
+
+            <button
+                id="btnImprimir"
+                type="button"
+            >
+                Imprimir reporte
+            </button>
+
+        </div>
+
+
+        <section class="cards report-cards">
+
+            <article>
+                <span>Técnicos</span>
+                <strong id="totalTecnicos">0</strong>
+            </article>
+
+            <article>
+                <span>Beneficiarios</span>
+                <strong id="totalBeneficiarios">0</strong>
+            </article>
+
+            <article>
+                <span>Parcelas</span>
+                <strong id="totalParcelas">0</strong>
+            </article>
+
+            <article>
+                <span>Visitas</span>
+                <strong id="totalVisitas">0</strong>
+            </article>
+
+            <article>
+                <span>Supervisiones</span>
+                <strong id="totalSupervisiones">0</strong>
+            </article>
+
+            <article>
+                <span>Hallazgos</span>
+                <strong id="totalHallazgos">0</strong>
+            </article>
+
+            <article>
+                <span>Recomendaciones pendientes</span>
+                <strong id="totalPendientes">0</strong>
+            </article>
+
+            <article>
+                <span>En proceso</span>
+                <strong id="totalProceso">0</strong>
+            </article>
+
+            <article>
+                <span>Cumplidas</span>
+                <strong id="totalCumplidas">0</strong>
+            </article>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="form-header">
+
+                <h2>
+                    Reporte de Visitas de Campo
+                </h2>
+
+            </div>
+
+
+            <div class="toolbar report-toolbar">
+
+
+                <div class="form-group">
+
+                    <label for="fechaDesde">
+                        Desde
+                    </label>
+
+                    <input
+                        id="fechaDesde"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="fechaHasta">
+                        Hasta
+                    </label>
+
+                    <input
+                        id="fechaHasta"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <button
+                    id="btnFiltrarVisitas"
+                    type="button"
+                >
+                    Filtrar
+                </button>
+
+
+                <button
+                    id="btnLimpiarVisitas"
+                    class="secondary"
+                    type="button"
+                >
+                    Limpiar
+                </button>
+
+
+                <button
+                    id="btnCsvVisitas"
+                    class="secondary"
+                    type="button"
+                >
+                    Exportar CSV
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table
+                    class="data-table"
+                    id="tablaReporteVisitas"
+                >
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Técnico</th>
+                            <th>Beneficiario</th>
+                            <th>Caserío</th>
+                            <th>Parcela</th>
+                            <th>Tipo</th>
+                            <th>Objetivo</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tbodyVisitas">
+
+                        <tr>
+                            <td colspan="8">
+                                Cargando...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="form-header">
+
+                <h2>
+                    Reporte de Recomendaciones
+                </h2>
+
+            </div>
+
+
+            <div class="toolbar report-toolbar">
+
+
+                <select id="estadoRecomendacion">
+
+                    <option value="">
+                        Todos los estados
+                    </option>
+
+                    <option value="PENDIENTE">
+                        Pendiente
+                    </option>
+
+                    <option value="EN_PROCESO">
+                        En proceso
+                    </option>
+
+                    <option value="CUMPLIDO">
+                        Cumplido
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="btnFiltrarRecomendaciones"
+                    type="button"
+                >
+                    Filtrar
+                </button>
+
+
+                <button
+                    id="btnLimpiarRecomendaciones"
+                    class="secondary"
+                    type="button"
+                >
+                    Limpiar
+                </button>
+
+
+                <button
+                    id="btnCsvRecomendaciones"
+                    class="secondary"
+                    type="button"
+                >
+                    Exportar CSV
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table
+                    class="data-table"
+                    id="tablaReporteRecomendaciones"
+                >
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Beneficiario</th>
+                            <th>Caserío</th>
+                            <th>Hallazgo</th>
+                            <th>Recomendación</th>
+                            <th>Responsable</th>
+                            <th>Fecha límite</th>
+                            <th>Estado</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tbodyRecomendaciones">
+
+                        <tr>
+                            <td colspan="8">
+                                Cargando...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<div
+    id="notificacion"
+    class="notificacion oculto"
+></div>
+
+
+<script src="js/common.js"></script>
+<script src="js/reportes.js"></script>
+
+</body>
+
+</html>

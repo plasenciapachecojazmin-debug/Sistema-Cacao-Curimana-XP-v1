@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SISCACAO | Inicio de sesión</title>
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+</head>
+
+
+<body>
+
+
+<div class="login-page">
+
+
+    <!-- CAPA OSCURA SOBRE LA FOTOGRAFÍA -->
+
+    <div class="background-overlay"></div>
+
+
+    <main class="login-layout">
+
+
+        <!-- =========================================
+             LADO IZQUIERDO / IDENTIDAD DEL PROYECTO
+             ========================================= -->
+
+        <section class="login-story">
+
+
+            <div class="story-content">
+
+
+                <span class="story-tag">
+                    PROYECTO CACAO CURIMANÁ · 2026
+                </span>
+
+
+                <h1>
+                    Cultivando
+                    <br>
+                    un mejor
+                    <br>
+                    <span>mañana</span>
+                </h1>
+
+
+                <p class="story-description">
+                    Tecnología para fortalecer la supervisión,
+                    seguimiento y desarrollo sostenible de
+                    las familias productoras de cacao.
+                </p>
+
+
+                <div class="story-features">
+
+
+                    <div class="story-feature">
+
+                        <div class="feature-icon">
+                            🌱
+                        </div>
+
+                        <div>
+                            <strong>
+                                Producción
+                            </strong>
+
+                            <span>
+                                Responsable
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="story-feature">
+
+                        <div class="feature-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <strong>
+                                Comunidades
+                            </strong>
+
+                            <span>
+                                Fortalecidas
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="story-feature">
+
+                        <div class="feature-icon">
+                            📈
+                        </div>
+
+                        <div>
+                            <strong>
+                                Desarrollo
+                            </strong>
+
+                            <span>
+                                Sostenible
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="story-signature">
+                    El cacao nos une
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================================
+             TARJETA DE LOGIN
+             ========================================= -->
+
+        <section class="login-panel">
+
+
+            <div class="login-card">
+
+
+                <!-- MARCA -->
+
+                <div class="login-brand">
+
+                   <img
+    src="img/logo-siscacao.png"
+    alt="SISCACAO"
+    class="login-brand-icon"
+>
+
+
+                    <div class="login-brand-name">
+                        SISCACAO
+                    </div>
+
+                </div>
+
+
+                <h2>
+                    Proyecto Cacao Curimaná 2026
+                </h2>
+
+
+                <p class="system-description">
+                    Sistema Web de Registro y Seguimiento
+                    de Supervisiones de Campo
+                </p>
+
+
+                <!-- FORMULARIO -->
+
+                <form
+                    id="loginForm"
+                    novalidate
+                >
+
+
+                    <!-- USUARIO -->
+
+                    <div class="input-group">
+
+                        <label for="usuario">
+                            Usuario
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5.33 0-8 2.67-8 5v2h16v-2c0-2.33-2.67-5-8-5Z"
+                                    />
+                                </svg>
+
+                            </span>
+
+
+                            <input
+                                id="usuario"
+                                name="usuario"
+                                type="text"
+                                autocomplete="username"
+                                placeholder="Ingrese su usuario"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Contraseña
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M17 8h-1V6a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V6Z"
+                                    />
+                                </svg>
+
+                            </span>
+
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                autocomplete="current-password"
+                                placeholder="Ingrese su contraseña"
+                                required
+                            >
+
+
+                            <button
+                                id="btnTogglePassword"
+                                class="password-toggle"
+                                type="button"
+                                aria-label="Mostrar contraseña"
+                                title="Mostrar contraseña"
+                            >
+
+                                <svg
+                                    id="eyeIcon"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M12 5c-5.5 0-9.5 5-9.5 7s4 7 9.5 7 9.5-5 9.5-7S17.5 5 12 5Zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                                    />
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OPCIONES -->
+
+                    <div class="login-options">
+
+
+                        <label class="remember-option">
+
+                            <input
+                                id="recordarme"
+                                type="checkbox"
+                            >
+
+                            <span>
+                                Recordarme
+                            </span>
+
+                        </label>
+
+
+                        <span class="security-label">
+                            Acceso seguro
+                        </span>
+
+
+                    </div>
+
+
+                    <!-- MENSAJES -->
+
+                    <div
+                        id="msg"
+                        class="login-message"
+                        role="alert"
+                    ></div>
+
+
+                    <!-- BOTÓN -->
+
+                    <button
+                        id="btnIngresar"
+                        class="login-submit"
+                        type="submit"
+                    >
+
+                        <span class="submit-icon">
+                            ↪
+                        </span>
+
+                        <span>
+                            Iniciar sesión
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- PIE -->
+
+                <div class="login-divider">
+
+                    <span></span>
+
+                    <p>
+                        Juntos por un cacao con futuro
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="login-values">
+
+
+                    <div>
+                        <strong>🌿</strong>
+                        <span>Campo</span>
+                    </div>
+
+
+                    <div>
+                        <strong>👥</strong>
+                        <span>Familia</span>
+                    </div>
+
+
+                    <div>
+                        <strong>🤝</strong>
+                        <span>Oportunidades</span>
+                    </div>
+
+
+                    <div>
+                        <strong>🌱</strong>
+                        <span>Sostenibilidad</span>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <div class="login-footer">
+
+        <strong>
+            CURIMANÁ 2026
+        </strong>
+
+        <span>
+            TERRITORIO QUE PRODUCE FUTURO
+        </span>
+
+    </div>
+
+
+</div>
+
+
+<script src="js/login.js"></script>
+
+
+</body>
+
+</html>

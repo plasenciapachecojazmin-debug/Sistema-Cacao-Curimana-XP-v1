@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SISCACAO | Gestión de Caseríos</title>
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <img
+            src="img/logo-siscacao.png"
+            alt="Logo SISCACAO"
+            class="brand-logo"
+        >
+
+        <div class="brand-text">
+            <strong>SISCACAO</strong>
+            <span>Proyecto Cacao Curimaná</span>
+        </div>
+
+    </div>
+
+    <div class="top-user">
+
+        <span id="usuarioActual"></span>
+
+        <button
+            id="btnSalir"
+            class="secondary"
+            type="button"
+        >
+            Cerrar sesión
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img
+                src="img/logo-siscacao.png"
+                alt="SISCACAO"
+            >
+
+            <div>
+                <strong>SISCACAO</strong>
+                <span>Proyecto Cacao Curimaná</span>
+            </div>
+
+        </div>
+
+
+        <h3>Menú principal</h3>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="caserios.html">Caseríos</a>
+        <a href="tecnicos.html">Técnicos</a>
+        <a href="beneficiarios.html">Beneficiarios</a>
+        <a href="parcelas.html">Parcelas</a>
+        <a href="visitas.html">Visitas de campo</a>
+        <a href="supervisiones.html">Supervisiones</a>
+        <a href="hallazgos.html">Hallazgos</a>
+        <a href="recomendaciones.html">Recomendaciones</a>
+        <a href="seguimiento.html">Seguimiento</a>
+        <a href="reportes.html">Reportes</a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Gestión de Caseríos</h1>
+
+                <p>
+                    Registro y administración de las zonas de intervención
+                    del Proyecto Cacao Curimaná.
+                </p>
+
+            </div>
+
+
+            <button
+                id="btnNuevo"
+                type="button"
+            >
+                + Nuevo caserío
+            </button>
+
+        </div>
+
+
+        <section class="panel">
+
+            <div class="toolbar">
+
+                <input
+                    id="buscar"
+                    type="search"
+                    placeholder="Buscar caserío..."
+                >
+
+                <button
+                    id="btnBuscar"
+                    type="button"
+                >
+                    Buscar
+                </button>
+
+                <button
+                    id="btnLimpiar"
+                    class="secondary"
+                    type="button"
+                >
+                    Limpiar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="table-responsive">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Caserío</th>
+                            <th>Distrito</th>
+                            <th>Provincia</th>
+                            <th>Departamento</th>
+                            <th>Observación</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tablaCaserios">
+
+                        <tr>
+                            <td colspan="7">
+                                Cargando información...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="panelFormulario"
+            class="panel formulario-panel oculto"
+        >
+
+            <div class="form-header">
+
+                <h2 id="tituloFormulario">
+                    Registrar caserío
+                </h2>
+
+                <button
+                    id="btnCerrarFormulario"
+                    class="secondary"
+                    type="button"
+                >
+                    X
+                </button>
+
+            </div>
+
+
+            <form id="formCaserio">
+
+                <input
+                    id="id_caserio"
+                    type="hidden"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="nombre">
+                            Nombre del caserío *
+                        </label>
+
+                        <input
+                            id="nombre"
+                            maxlength="120"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="distrito">
+                            Distrito *
+                        </label>
+
+                        <input
+                            id="distrito"
+                            value="Curimaná"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="provincia">
+                            Provincia *
+                        </label>
+
+                        <input
+                            id="provincia"
+                            value="Padre Abad"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="departamento">
+                            Departamento *
+                        </label>
+
+                        <input
+                            id="departamento"
+                            value="Ucayali"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="observacion">
+                        Observación
+                    </label>
+
+                    <textarea
+                        id="observacion"
+                        rows="3"
+                        maxlength="255"
+                    ></textarea>
+
+                </div>
+
+
+                <div
+                    id="mensajeFormulario"
+                    class="msg"
+                ></div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit">
+                        Guardar
+                    </button>
+
+                    <button
+                        id="btnCancelar"
+                        class="secondary"
+                        type="button"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div
+    id="notificacion"
+    class="notificacion oculto"
+></div>
+
+
+<script src="js/common.js"></script>
+<script src="js/caserios.js"></script>
+
+</body>
+
+</html>

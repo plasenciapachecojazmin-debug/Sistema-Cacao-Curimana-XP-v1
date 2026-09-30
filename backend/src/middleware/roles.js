@@ -1,0 +1,1 @@
+module.exports=function permit(...roles){return(req,res,next)=>{if(!req.user||!roles.includes(req.user.rol))return res.status(403).json({ok:false,mensaje:"No tiene permisos para esta operacion"});next();};};

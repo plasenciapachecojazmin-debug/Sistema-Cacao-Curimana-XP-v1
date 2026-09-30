@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SISCACAO | Seguimiento</title>
+
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <img
+            src="img/logo-siscacao.png"
+            alt="Logo SISCACAO"
+            class="brand-logo"
+        >
+
+        <div class="brand-text">
+            <strong>SISCACAO</strong>
+            <span>Proyecto Cacao Curimaná</span>
+        </div>
+
+    </div>
+
+
+    <div class="top-user">
+
+        <span id="usuarioActual"></span>
+
+        <button
+            id="btnSalir"
+            class="secondary"
+            type="button"
+        >
+            Cerrar sesión
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img
+                src="img/logo-siscacao.png"
+                alt="SISCACAO"
+            >
+
+            <div>
+                <strong>SISCACAO</strong>
+                <span>Proyecto Cacao Curimaná</span>
+            </div>
+
+        </div>
+
+
+        <h3>Menú principal</h3>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="caserios.html">Caseríos</a>
+        <a href="tecnicos.html">Técnicos</a>
+        <a href="beneficiarios.html">Beneficiarios</a>
+        <a href="parcelas.html">Parcelas</a>
+        <a href="visitas.html">Visitas de campo</a>
+        <a href="supervisiones.html">Supervisiones</a>
+        <a href="hallazgos.html">Hallazgos</a>
+        <a href="recomendaciones.html">Recomendaciones</a>
+        <a href="seguimiento.html">Seguimiento</a>
+        <a href="reportes.html">Reportes</a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Seguimiento de Recomendaciones</h1>
+
+                <p>
+                    Control del avance y cumplimiento
+                    de las acciones correctivas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <section class="panel">
+
+            <div class="toolbar">
+
+                <input
+                    id="buscar"
+                    type="search"
+                    placeholder="Buscar beneficiario, recomendación, responsable o hallazgo..."
+                >
+
+
+                <select id="filtroEstado">
+
+                    <option value="">
+                        Todos los estados
+                    </option>
+
+                    <option value="PENDIENTE">
+                        Pendiente
+                    </option>
+
+                    <option value="EN_PROCESO">
+                        En proceso
+                    </option>
+
+                    <option value="CUMPLIDO">
+                        Cumplido
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="btnBuscar"
+                    type="button"
+                >
+                    Buscar
+                </button>
+
+
+                <button
+                    id="btnLimpiar"
+                    class="secondary"
+                    type="button"
+                >
+                    Limpiar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <h2>Recomendaciones registradas</h2>
+
+            <div class="table-responsive">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Beneficiario</th>
+                            <th>Recomendación</th>
+                            <th>Responsable</th>
+                            <th>Fecha límite</th>
+                            <th>Estado actual</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tablaRecomendaciones">
+
+                        <tr>
+                            <td colspan="7">
+                                Cargando información...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="panelSeguimiento"
+            class="panel formulario-panel oculto"
+        >
+
+            <div class="form-header">
+
+                <h2>
+                    Actualizar seguimiento
+                </h2>
+
+                <button
+                    id="btnCerrarSeguimiento"
+                    class="secondary"
+                    type="button"
+                >
+                    X
+                </button>
+
+            </div>
+
+
+            <form id="formSeguimiento">
+
+                <input
+                    id="id_recomendacion"
+                    type="hidden"
+                >
+
+                <input
+                    id="estado_actual"
+                    type="hidden"
+                >
+
+
+                <div
+                    id="detalleRecomendacion"
+                    class="detalle-visita"
+                ></div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="nuevo_estado">
+                            Nuevo estado *
+                        </label>
+
+                        <select
+                            id="nuevo_estado"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccione nuevo estado
+                            </option>
+
+                            <option value="PENDIENTE">
+                                Pendiente
+                            </option>
+
+                            <option value="EN_PROCESO">
+                                En proceso
+                            </option>
+
+                            <option value="CUMPLIDO">
+                                Cumplido
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="observacion">
+                        Observación del seguimiento
+                    </label>
+
+                    <textarea
+                        id="observacion"
+                        rows="4"
+                        placeholder="Describa el avance, verificación realizada o resultado observado"
+                    ></textarea>
+
+                </div>
+
+
+                <div
+                    id="mensajeFormulario"
+                    class="msg"
+                ></div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit">
+                        Guardar seguimiento
+                    </button>
+
+                    <button
+                        id="btnCancelar"
+                        type="button"
+                        class="secondary"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <section
+            id="panelHistorial"
+            class="panel formulario-panel oculto"
+        >
+
+            <div class="form-header">
+
+                <h2>
+                    Historial de seguimiento
+                </h2>
+
+                <button
+                    id="btnCerrarHistorial"
+                    class="secondary"
+                    type="button"
+                >
+                    X
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Estado anterior</th>
+                            <th>Estado nuevo</th>
+                            <th>Observación</th>
+                            <th>Registrado por</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tablaHistorial">
+
+                        <tr>
+                            <td colspan="5">
+                                Sin movimientos.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<div
+    id="notificacion"
+    class="notificacion oculto"
+></div>
+
+
+<script src="js/common.js"></script>
+<script src="js/seguimiento.js"></script>
+
+</body>
+
+</html>

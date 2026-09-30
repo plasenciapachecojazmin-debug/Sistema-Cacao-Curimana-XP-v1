@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        SISCACAO | Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/app.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     CABECERA
+     ========================================================= -->
+
+<header class="topbar">
+
+
+    <div class="brand">
+
+
+        <img
+            src="img/logo-siscacao.png"
+            alt="SISCACAO"
+            class="brand-logo"
+        >
+
+
+        <div class="brand-text">
+
+            <strong>
+                SISCACAO
+            </strong>
+
+            <span>
+                Proyecto Cacao Curimaná
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="top-user">
+
+
+        <span id="usuarioActual">
+        </span>
+
+
+        <button
+            id="btnSalir"
+            data-logout
+            class="secondary"
+            type="button"
+            onclick="cerrarSesionSeguro()"
+        >
+            Cerrar sesión
+        </button>
+
+
+    </div>
+
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <!-- =====================================================
+         MENÚ LATERAL
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-mark">
+
+            <img
+                src="img/logo-siscacao.png"
+                alt="Cacao"
+            >
+
+        </div>
+
+
+        <h3>
+            MENÚ PRINCIPAL
+        </h3>
+
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="caserios.html">
+            Caseríos
+        </a>
+
+
+        <a href="tecnicos.html">
+            Técnicos
+        </a>
+
+
+        <a href="beneficiarios.html">
+            Beneficiarios
+        </a>
+
+
+        <a href="parcelas.html">
+            Parcelas
+        </a>
+
+
+        <a href="visitas.html">
+            Visitas de campo
+        </a>
+
+
+        <a href="supervisiones.html">
+            Supervisiones
+        </a>
+
+
+        <a href="hallazgos.html">
+            Hallazgos
+        </a>
+
+
+        <a href="recomendaciones.html">
+            Recomendaciones
+        </a>
+
+
+        <a href="seguimiento.html">
+            Seguimiento
+        </a>
+
+
+        <a href="reportes.html">
+            Reportes
+        </a>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <section class="dashboard-hero">
+
+
+            <h1>
+                Panel principal de SISCACAO
+            </h1>
+
+
+            <p>
+                Sistema web para el registro y seguimiento de
+                supervisiones de campo del Proyecto Cacao
+                Curimaná – 2026.
+            </p>
+
+
+        </section>
+
+
+        <!-- INDICADORES -->
+
+        <section class="cards">
+
+
+            <article>
+
+                <span>
+                    Técnicos
+                </span>
+
+                <strong id="totalTecnicos">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Beneficiarios
+                </span>
+
+                <strong id="totalBeneficiarios">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Parcelas
+                </span>
+
+                <strong id="totalParcelas">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Visitas
+                </span>
+
+                <strong id="totalVisitas">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Supervisiones
+                </span>
+
+                <strong id="totalSupervisiones">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Hallazgos
+                </span>
+
+                <strong id="totalHallazgos">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Recomendaciones pendientes
+                </span>
+
+                <strong id="totalPendientes">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    En proceso
+                </span>
+
+                <strong id="totalProceso">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article>
+
+                <span>
+                    Cumplidas
+                </span>
+
+                <strong id="totalCumplidas">
+                    0
+                </strong>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- METODOLOGÍA -->
+
+        <section class="panel">
+
+
+            <div class="form-header">
+
+                <h2>
+                    Desarrollo del sistema con metodología XP
+                </h2>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Datos maestros
+                    </span>
+
+                    <strong>
+                        01
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Visitas y supervisiones
+                    </span>
+
+                    <strong>
+                        02
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Hallazgos y seguimiento
+                    </span>
+
+                    <strong>
+                        03
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Reportes y estabilización
+                    </span>
+
+                    <strong>
+                        04
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     common.js SIEMPRE PRIMERO
+     ========================================================= -->
+
+<script src="js/common.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

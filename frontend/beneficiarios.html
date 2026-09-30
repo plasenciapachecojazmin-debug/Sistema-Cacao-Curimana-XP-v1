@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SISCACAO | Gestión de Beneficiarios</title>
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <img
+            src="img/logo-siscacao.png"
+            alt="Logo SISCACAO"
+            class="brand-logo"
+        >
+
+        <div class="brand-text">
+            <strong>SISCACAO</strong>
+            <span>Proyecto Cacao Curimaná</span>
+        </div>
+
+    </div>
+
+
+    <div class="top-user">
+
+        <span id="usuarioActual"></span>
+
+        <button
+            id="btnSalir"
+            class="secondary"
+            type="button"
+        >
+            Cerrar sesión
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="app-layout">
+
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img
+                src="img/logo-siscacao.png"
+                alt="SISCACAO"
+            >
+
+            <div>
+                <strong>SISCACAO</strong>
+                <span>Proyecto Cacao Curimaná</span>
+            </div>
+
+        </div>
+
+        <h3>Menú principal</h3>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="caserios.html">Caseríos</a>
+        <a href="tecnicos.html">Técnicos</a>
+        <a href="beneficiarios.html">Beneficiarios</a>
+        <a href="parcelas.html">Parcelas</a>
+        <a href="visitas.html">Visitas de campo</a>
+        <a href="supervisiones.html">Supervisiones</a>
+        <a href="hallazgos.html">Hallazgos</a>
+        <a href="recomendaciones.html">Recomendaciones</a>
+        <a href="seguimiento.html">Seguimiento</a>
+        <a href="reportes.html">Reportes</a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Gestión de Beneficiarios</h1>
+
+                <p>
+                    Registro y administración de las familias participantes
+                    del Proyecto Cacao Curimaná.
+                </p>
+
+            </div>
+
+
+            <button
+                id="btnNuevo"
+                type="button"
+            >
+                + Nuevo beneficiario
+            </button>
+
+        </div>
+
+
+        <section class="panel">
+
+            <div class="toolbar">
+
+                <input
+                    id="buscar"
+                    type="search"
+                    placeholder="Buscar por nombre, apellido, DNI, teléfono o sector..."
+                >
+
+
+                <select id="filtroCaserio">
+
+                    <option value="">
+                        Todos los caseríos
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="btnBuscar"
+                    type="button"
+                >
+                    Buscar
+                </button>
+
+
+                <button
+                    id="btnLimpiar"
+                    class="secondary"
+                    type="button"
+                >
+                    Limpiar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="table-responsive">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Beneficiario</th>
+                            <th>DNI</th>
+                            <th>Teléfono</th>
+                            <th>Caserío</th>
+                            <th>Sector</th>
+                            <th>Referencia</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tablaBeneficiarios">
+
+                        <tr>
+                            <td colspan="8">
+                                Cargando información...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="panelFormulario"
+            class="panel formulario-panel oculto"
+        >
+
+            <div class="form-header">
+
+                <h2 id="tituloFormulario">
+                    Registrar beneficiario
+                </h2>
+
+                <button
+                    id="btnCerrarFormulario"
+                    class="secondary"
+                    type="button"
+                >
+                    X
+                </button>
+
+            </div>
+
+
+            <form id="formBeneficiario">
+
+                <input
+                    id="id_beneficiario"
+                    type="hidden"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="nombres">
+                            Nombres *
+                        </label>
+
+                        <input
+                            id="nombres"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="apellidos">
+                            Apellidos *
+                        </label>
+
+                        <input
+                            id="apellidos"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="dni">
+                            DNI
+                        </label>
+
+                       <input
+        id="dni"
+        type="text"
+        maxlength="8"
+        inputmode="numeric"
+        data-only-digits="8"
+        data-exact-length="8"
+        data-label="DNI"
+        placeholder="Ejemplo: 12345678"
+    >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+
+                        <input
+        id="telefono"
+        type="text"
+        maxlength="9"
+        inputmode="numeric"
+        data-only-digits="9"
+        data-exact-length="9"
+        data-label="Teléfono"
+        placeholder="Ejemplo: 987654321"
+    >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="id_caserio">
+                            Caserío *
+                        </label>
+
+                        <select
+                            id="id_caserio"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccione un caserío
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="sector">
+                            Sector
+                        </label>
+
+                        <input
+                            id="sector"
+                            maxlength="120"
+                            placeholder="Ejemplo: Sector 1"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="referencia">
+                        Referencia
+                    </label>
+
+                    <textarea
+                        id="referencia"
+                        rows="3"
+                        maxlength="255"
+                        placeholder="Referencia de ubicación u observación adicional"
+                    ></textarea>
+
+                </div>
+
+
+                <div
+                    id="mensajeFormulario"
+                    class="msg"
+                ></div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit">
+                        Guardar
+                    </button>
+
+                    <button
+                        id="btnCancelar"
+                        class="secondary"
+                        type="button"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div
+    id="notificacion"
+    class="notificacion oculto"
+></div>
+
+
+<script src="js/common.js"></script>
+<script src="js/beneficiarios.js"></script>
+
+</body>
+
+</html>
